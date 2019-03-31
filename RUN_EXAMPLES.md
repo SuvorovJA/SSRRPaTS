@@ -84,3 +84,9 @@ shell:>search новости
 --------------------
 shell:>
 ```
+
+``` 
+shell:>search DisconnectedInternet
+Ошибка: class java.net.UnknownHostException: www.google.com
+shell:>
+```

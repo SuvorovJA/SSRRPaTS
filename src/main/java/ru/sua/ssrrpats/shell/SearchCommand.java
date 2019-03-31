@@ -25,7 +25,7 @@ public class SearchCommand {
         try {
             return formatter.format2text(service.search(request));
         } catch (IOException e) {
-            return "Ошибка: " + e.getMessage();
+            return "Ошибка: " + e.getClass() + ": " + e.getMessage();
         }
     }
 }

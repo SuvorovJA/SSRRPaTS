@@ -7,6 +7,8 @@ import org.springframework.shell.standard.ShellOption;
 import ru.sua.ssrrpats.service.ResultFormatter;
 import ru.sua.ssrrpats.service.SearchService;
 
+import java.io.IOException;
+
 @ShellComponent
 public class SearchCommand {
     private final SearchService service;
@@ -20,6 +22,10 @@ public class SearchCommand {
 
     @ShellMethod("Сделать запрос на поисковую систему и вывести статистику")
     public String search(@ShellOption String request) {
-        return formatter.format2text(service.search(request));
+        try {
+            return formatter.format2text(service.search(request));
+        } catch (IOException e) {
+            return "Ошибка: " + e.getMessage();
+        }
     }
 }

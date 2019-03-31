@@ -1,4 +1,4 @@
 application:
-  topNum: 10
+  topNum: 5
   searchSystemUrl: https://www.google.com/search?q=
 # searchSystemUrl: https://yandex.ru/search/?text=

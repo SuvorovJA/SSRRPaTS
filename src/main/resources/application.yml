@@ -1,0 +1,4 @@
+application:
+  topNum: 10
+  searchSystemUrl: https://www.google.com/search?q=
+# searchSystemUrl: https://yandex.ru/search/?text=

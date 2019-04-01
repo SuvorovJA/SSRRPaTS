@@ -1,8 +1,7 @@
 package ru.sua.ssrrpats.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.sua.ssrrpats.config.AppParams;
+import ru.sua.ssrrpats.domain.HistoryRecord;
 import ru.sua.ssrrpats.domain.ParsingResult;
 
 import java.util.Map;
@@ -13,13 +12,6 @@ import static java.util.stream.Collectors.joining;
 
 @Service
 public class ResultFormatterImpl implements ResultFormatter {
-
-    private AppParams appParams;
-
-    @Autowired
-    public ResultFormatterImpl(AppParams appParams) {
-        this.appParams = appParams;
-    }
 
     @SuppressWarnings("StringBufferReplaceableByString")
     @Override
@@ -36,6 +28,20 @@ public class ResultFormatterImpl implements ResultFormatter {
         sb.append(mapToString(parsingResult.topMax()));
         sb.append("\nРеже всего встречались: \n\t");
         sb.append(mapToString(parsingResult.topMin()));
+        sb.append(dashLine());
+        return sb.toString();
+    }
+
+    @SuppressWarnings("StringBufferReplaceableByString")
+    @Override
+    public String format2text(HistoryRecord hr) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("\nID: \t").append(hr.getId());
+        sb.append("\nЗапрос: \t'").append(hr.getUrl());
+        sb.append("'\nВремя запроса: \t").append(hr.getTimestamp());
+        sb.append("\nВсего слов: \t").append(hr.getTotalWords());
+        sb.append("\nВсего уникальных слов: \t").append(hr.getUniqWords());
+        sb.append("\nТехт ответа: \t").append(hr.getFullTextDelimeted());
         sb.append(dashLine());
         return sb.toString();
     }

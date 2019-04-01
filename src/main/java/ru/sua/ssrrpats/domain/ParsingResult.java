@@ -31,6 +31,10 @@ public class ParsingResult {
 
     }
 
+    public String getFullTextDelimeted(String delimeter) {
+        return String.join(delimeter, fullText);
+    }
+
     private boolean isUrl(String s) {
         return s.startsWith("http://") ||
                 s.startsWith("https://") ||

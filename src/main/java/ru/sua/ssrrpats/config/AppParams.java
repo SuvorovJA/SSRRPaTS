@@ -11,6 +11,5 @@ public class AppParams {
 
     private String searchSystemUrl;
     private int topNum;
-    private String dataSource;
 
 }

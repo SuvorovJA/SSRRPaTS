@@ -2,3 +2,9 @@ application:
   topNum: 5
   searchSystemUrl: https://www.google.com/search?q=
 # searchSystemUrl: https://yandex.ru/search/?text=
+
+spring:
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/default
+    username: sa
+    password: sa

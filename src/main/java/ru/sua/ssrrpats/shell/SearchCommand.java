@@ -1,5 +1,6 @@
 package ru.sua.ssrrpats.shell;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
@@ -10,15 +11,10 @@ import ru.sua.ssrrpats.service.SearchService;
 import java.io.IOException;
 
 @ShellComponent
+@AllArgsConstructor
 public class SearchCommand {
     private final SearchService service;
     private final ResultFormatter formatter;
-
-    @Autowired
-    public SearchCommand(SearchService service, ResultFormatter formatter) {
-        this.service = service;
-        this.formatter = formatter;
-    }
 
     @ShellMethod("Сделать запрос на поисковую систему и вывести статистику")
     public String search(@ShellOption String request) {

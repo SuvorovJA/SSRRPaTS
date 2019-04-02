@@ -15,14 +15,7 @@ import java.io.IOException;
 public class SearchServiceImpl implements SearchService {
 
     private AppParams appParams;
-
     private ApplicationEventPublisher applicationEventPublisher;
-
-    // default inject by lombok constructor
-//    @Autowired
-//    public SearchServiceImpl(AppParams appParams) {
-//        this.appParams = appParams;
-//    }
 
     @Override
     public ParsingResult search(String request) throws IOException {
